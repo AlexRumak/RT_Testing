@@ -12,7 +12,7 @@
 
 #define ERROR 1
 
-#define BUFFER_SIZE 10000
+#define BUFFER_SIZE 100
 
 void setCurrentThreadAffinity(int cpu)
 {
@@ -59,7 +59,8 @@ int main(int argc, char* argv[])
   setCurrentThreadPriority(maxPriority);
 
   // warm cache
-  fib.GenerateLoad();
+  for(int i = 0; i < 10; i++)
+    fib.GenerateLoad();
 
   // Convert microseconds to float of milliseconds
   // 1000 microseconds in 1 ms 
@@ -79,4 +80,5 @@ int main(int argc, char* argv[])
   std::cout << "Milliseconds elapsed: " << stats.GetAverageDurationMs() << std::endl;
   std::cout << "Milliseconds Max: " << stats.GetMaxVal() << std::endl;
   std::cout << "Milliseconds Min: " << stats.GetMinVal() << std::endl;
+  std::cout << "95 percentile: " << stats.GetPercentile(0.95) << std::endl;
 }

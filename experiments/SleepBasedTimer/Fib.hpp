@@ -1,6 +1,7 @@
 /**
  * Simulation code running the fibonacci sequence for X seconds, to simulate full compute time.
  */
+#pragma once
 
 #include <cstdint>
 

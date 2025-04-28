@@ -1,7 +1,6 @@
 /**
  * Class for testing Stats.hpp
  */
-
 #include "Stats.hpp"
 
 #include <iostream>
